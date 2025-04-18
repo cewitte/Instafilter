@@ -50,6 +50,47 @@ Result:
 
 ![Confirmation Dialog](/images/confirmation_dialog.png)
 
+### Integrating `CoreImage`with `SwiftUI`
+
+Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/integrating-core-image-with-swiftui)
+
+Branch: `02-ingrating-coreimage-swiftui`
+
+"What actually is an Image? As you know, it’s a view, which means it’s something we can position and size inside our SwiftUI view hierarchy. It also handles loading images from our asset catalog and SF Symbols, and it’s capable of loading from a handful of other sources too. However, ultimately it is something that gets displayed – we can’t write its contents to disk or otherwise transform them beyond applying a few simple SwiftUI filters.
+
+If we want to use Core Image, SwiftUI’s Image view is a great end point, but it’s not useful to use elsewhere. That is, if we want to create images dynamically, apply Core Image filters, and so on, then SwiftUI’s images aren’t up to the job.
+
+Apple gives us three other image types to work with, and cunningly we need to use all three if we want to work with Core Image. They might sound similar, but there is some subtle distinction between them, and it’s important that you use them correctly if you want to get anything meaningful out of Core Image.
+
+Apart from SwiftUI’s Image view, the three other image types are:
+
+- `UIImage`, which comes from UIKit. This is an extremely powerful image type capable of working with a variety of image types, including bitmaps (like PNG), vectors (like SVG), and even sequences that form an animation. `UIImage` is the standard image type for `UIKit`, and of the three it’s closest to SwiftUI’s Image type.
+- `CGImage`, which comes from Core Graphics. This is a simpler image type that is really just a two-dimensional array of pixels.
+- `CIImage`, which comes from Core Image. This stores all the information required to produce an image but doesn’t actually turn that into pixels unless it’s asked to. Apple calls CIImage “an image recipe” rather than an actual image.
+
+There is some interoperability between the various image types:
+
+- We can create a `UIImage` from a `CGImage`, and create a `CGImage` from a `UIImage`.
+- We can create a `CIImage` from a `UIImage` and from a `CGImage`, and can create a `CGImage` from a `CIImage`.
+- We can create a SwiftUI `Image` from both a `UIImage` and a `CGImage`.
+
+[...] 
+
+we need to convert the output from our filter to a SwiftUI Image that we can display in our view. This is where we need to lean on all four image types at once, because the easiest thing to do is:
+
+1. Read the output image from our filter, which will be a `CIImage`. This might fail, so it returns an optional.
+2. Ask our context to create a `CGImage` from that output image. This also might fail, so again it returns an optional.
+3. Convert that `CGImage` into a `UIImage`.
+4. Convert that `UIImage` into a SwiftUI `Image`.
+
+[...]
+
+If you’re implementing precise Core Image adjustments you should definitely be using the newer API that uses exact property names and types, but in this project the older API comes in useful because it lets us send in adjustments regardless of what filter is actually used."
+
+Result:
+
+![`photoEffectMono()` applied](/images/photo_effect_mono.png)
+
 ### Acknowledgments
 
 Original code created by: [Paul Hudson - @twostraws](https://x.com/twostraws) (Thank you!)
