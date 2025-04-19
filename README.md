@@ -121,6 +121,10 @@ Result (simple version with single photo):
 
 ![Simple version](/images/simple_version.gif)
 
+Result (multiple photo selection):
+
+![Multiple photo selection](/images/multiple_photo_selection.gif)
+
 ### Acknowledgments
 
 Original code created by: [Paul Hudson - @twostraws](https://x.com/twostraws) (Thank you!)
