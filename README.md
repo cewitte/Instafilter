@@ -125,6 +125,28 @@ Result (multiple photo selection):
 
 ![Multiple photo selection](/images/multiple_photo_selection.gif)
 
+### How to let the user share content with ShareLink
+
+Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/how-to-let-the-user-share-content-with-sharelink)
+
+Branch: `05-share-with-sharelink`
+
+"SwiftUI's ShareLink view lets users export content from our app to share elsewhere, such as saving a picture to their photo library, sending a link to a friend using Messages, and more.
+
+We provide the content we want to share, and iOS takes care of showing all the apps that can handle the data we're sending."
+
+Example
+
+``
+ShareLink(item: URL(string: "https://www.hackingwithswift.com")!) {
+    Label("Spread the word about Swift", systemImage: "swift")
+}
+``
+
+Result:
+
+![ShareLink view](/images/sharelink.gif)
+
 ### Acknowledgments
 
 Original code created by: [Paul Hudson - @twostraws](https://x.com/twostraws) (Thank you!)
