@@ -147,6 +147,18 @@ Result:
 
 ![ShareLink view](/images/sharelink.gif)
 
+### How to ask the user to leave an App Store review
+
+Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/how-to-ask-the-user-to-leave-an-app-store-review)
+
+Branch: `06-appstore-review`
+
+"SwiftUI provides a special environment key called .requestReview, which lets us ask the user to leave a review for our app on the App Store. Apple takes care of showing the whole user interface, making sure it doesn't get shown if the user has already left a review, and also limiting how often the request can be shown – we just need to make a request when we're ready."
+
+Result:
+
+![Leave a Review](/images/app_store_review.gif)
+
 ### Acknowledgments
 
 Original code created by: [Paul Hudson - @twostraws](https://x.com/twostraws) (Thank you!)

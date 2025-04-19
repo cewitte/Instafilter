@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct ContentView: View {
+    @Environment(\.requestReview) var requestReview
+    
     
     var body: some View {
-        let example = Image(.example)
-        
-        ShareLink(
-            item: example,
-            preview: SharePreview("Marcus Aurelius", image: example)
-        )
+        Button("Leave a review") {
+            requestReview()
+        }
     }
     
 }
