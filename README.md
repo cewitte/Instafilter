@@ -105,6 +105,22 @@ Result:
 
 ![ContentUnavailableView](/images/content_unavailable_view.png)
 
+### Loading photos from the user's photo library
+
+Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/loading-photos-from-the-users-photo-library)
+
+Branch: `04-loading-photos-from-library`
+
+"SwiftUI's PhotosPicker view provides us with a simple way to import one or more photos from the user's photo library. To avoid causing any performance hiccups, the data gets provided to us as a special type called PhotosPickerItem, which we can then load asynchronously to convert the data into a SwiftUI image.
+
+This takes five steps in total."
+
+Note: there are 2 commits (so far) in this branch: one that shows the most basic code to import a single photo from the user's library, and another one that shows how to import multiple photos.
+
+Result (simple version with single photo):
+
+![Simple version](/images/simple_version.gif)
+
 ### Acknowledgments
 
 Original code created by: [Paul Hudson - @twostraws](https://x.com/twostraws) (Thank you!)

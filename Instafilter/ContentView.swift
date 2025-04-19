@@ -6,47 +6,25 @@
 //
 
 import SwiftUI
-import CoreImage
-import CoreImage.CIFilterBuiltins
+import PhotosUI
 
 struct ContentView: View {
-    @State private var image: Image?
+    @State private var pickerItem: PhotosPickerItem?
+    @State private var selectedImage: Image?
     
     var body: some View {
-        ContentUnavailableView("No snippets", systemImage: "swift")
+        VStack {
+            PhotosPicker("Select a picture", selection: $pickerItem, matching: .images)
+            
+            selectedImage?.resizable().scaledToFit()
+        }
+        .onChange(of: pickerItem) {
+            Task {
+                selectedImage = try await pickerItem?.loadTransferable(type: Image.self)
+            }
+        }
     }
     
-    // Not needed for this example
-    // Keeping it here just because
-    func loadImage() {
-        let inputImage = UIImage(resource: .example)
-        let beginImage = CIImage(image: inputImage)
-        
-        let context = CIContext()
-        let currentFilter = CIFilter.photoEffectMono()
-        
-        let amount = 1.0
-        
-        let inputKeys = currentFilter.inputKeys
-        
-        if inputKeys.contains(kCIInputIntensityKey) {
-            currentFilter.setValue(amount, forKey: kCIInputIntensityKey)
-        }
-        if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(amount * 10, forKey: kCIInputRadiusKey)
-        }
-        if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(amount * 10, forKey: kCIInputScaleKey)
-        }
-         
-        currentFilter.inputImage = beginImage
-        
-        guard let outputImage = currentFilter.outputImage else { return }
-        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
-        
-        let uiImage = UIImage(cgImage: cgImage)
-        image = Image(uiImage: uiImage)
-    }
 }
 
 #Preview {
