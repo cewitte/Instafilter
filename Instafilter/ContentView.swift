@@ -13,14 +13,11 @@ struct ContentView: View {
     @State private var image: Image?
     
     var body: some View {
-        VStack {
-            image?
-                .resizable()
-                .scaledToFit()
-        }
-        .onAppear(perform: loadImage)
+        ContentUnavailableView("No snippets", systemImage: "swift")
     }
     
+    // Not needed for this example
+    // Keeping it here just because
     func loadImage() {
         let inputImage = UIImage(resource: .example)
         let beginImage = CIImage(image: inputImage)

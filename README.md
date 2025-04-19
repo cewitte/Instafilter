@@ -91,6 +91,20 @@ Result:
 
 ![`photoEffectMono()` applied](/images/photo_effect_mono.png)
 
+### Showing empty states with `ContentUnavailableView`
+
+Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/showing-empty-states-with-contentunavailableview)
+
+Branch: `03-empty-states-contentunavailableview`
+
+"SwiftUI's `ContentUnavailableView` shows a standard user interface for when your app has nothing to display. I know, that sounds redundant, right? After all, if you have nothing to display, you have nothing to display!
+
+But `ContentUnavailableView` is perfect for times your app relies on user information that hasn't been provided yet, such as when your user hasn't created any data, or if they are searching for something and there are no results."
+
+Result:
+
+![ContentUnavailableView](/images/content_unavailable_view.png)
+
 ### Acknowledgments
 
 Original code created by: [Paul Hudson - @twostraws](https://x.com/twostraws) (Thank you!)
