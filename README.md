@@ -20,6 +20,14 @@ Here is the complete app:
 
 ![Complete App](/images/instafilter_complete_app.gif)
 
+### Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected
+
+Branch: `challenge-1`
+
+Result:
+
+![Challenge 1's disabled controls](/images/disabled_controls.gif)
+
 ### Showing multiple options with `confirmationDialog()`
 
 Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/showing-multiple-options-with-confirmationdialog)

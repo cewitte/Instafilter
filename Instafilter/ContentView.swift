@@ -46,10 +46,12 @@ struct ContentView: View {
                     Text("Intensity")
                     Slider(value: $filterIntensity)
                         .onChange(of: filterIntensity, applyProcessing)
+                        .disabled(selectedItem == nil) // Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
                 }
                 
                 HStack {
                     Button("Change Filter", action: changeFilter)
+                        .disabled(selectedItem == nil) // Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
                     
                     Spacer()
                     
