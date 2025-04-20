@@ -18,7 +18,7 @@ But there’s another reason, and I’m hoping it won’t always be a reason: ma
 
 Here is the complete app:
 
-![Complete App](/img/instafilter_complete_app.gif)
+![Complete App](/images/instafilter_complete_app.gif)
 
 ### Showing multiple options with `confirmationDialog()`
 
