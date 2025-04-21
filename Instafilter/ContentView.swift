@@ -14,6 +14,8 @@ import StoreKit
 struct ContentView: View {
     @State private var processedImage: Image?
     @State private var filterIntensity = 0.5
+    @State private var filterRadius = 10.00
+    @State private var filterScale = 10.0
     @State private var selectedItem: PhotosPickerItem?
     @State private var showingFilters = false
     
@@ -40,13 +42,41 @@ struct ContentView: View {
                 .buttonStyle(.plain)
                 .onChange(of: selectedItem, loadImage)
                 
+                if selectedItem != nil {
+                    Text(currentFilter.name)
+                        .padding()
+                }
+                
                 Spacer()
                 
-                HStack {
-                    Text("Intensity")
-                    Slider(value: $filterIntensity)
-                        .onChange(of: filterIntensity, applyProcessing)
-                        .disabled(selectedItem == nil) // Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
+                // Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
+                if currentFilter.inputKeys.contains(kCIInputIntensityKey) {
+                    HStack {
+                        Text("Intensity")
+                        Slider(value: $filterIntensity, in: 0...1)
+                            .onChange(of: filterIntensity, applyProcessing)
+                            .disabled(selectedItem == nil) // Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
+                    }
+                }
+                
+                // Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
+                if currentFilter.inputKeys.contains(kCIInputScaleKey) {
+                    HStack {
+                        Text("Scale")
+                        Slider(value: $filterScale, in: 1...100)
+                            .onChange(of: filterScale, applyProcessing)
+                            .disabled(selectedItem == nil) // Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
+                    }
+                }
+                
+                // Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
+                if currentFilter.inputKeys.contains(kCIInputRadiusKey) {
+                    HStack {
+                        Text("Radius")
+                        Slider(value: $filterRadius, in: 100...1000)
+                            .onChange(of: filterRadius, applyProcessing)
+                            .disabled(selectedItem == nil) // Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
+                    }
                 }
                 
                 HStack {
@@ -100,15 +130,15 @@ struct ContentView: View {
         let inputKeys = currentFilter.inputKeys
         
         if inputKeys.contains(kCIInputIntensityKey) {
-            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
+            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) // Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
         }
         
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(filterRadius, forKey: kCIInputRadiusKey) // Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
         }
         
         if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
+            currentFilter.setValue(filterScale, forKey: kCIInputScaleKey) // Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
         }
         
         
@@ -130,9 +160,13 @@ struct ContentView: View {
         
         filterCount += 1
         
-        if filterCount >= 3 {
+        if filterCount >= 20 {
             requestReview()
         }
+    }
+    
+    init() {
+        filterCount = 0
     }
 }
 
