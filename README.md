@@ -38,6 +38,14 @@ Result:
 
 ![Challenge 2's multiple controls](/images/challenge-2.gif)
 
+### Challenge 3: Explore the range of available Core Image filters, and add any three of your choosing to the app.
+
+Branch: `challenge-3`
+
+Result:
+
+![Challenge 3's new filters added](/images/challenge-3.gif)
+
 ### Showing multiple options with `confirmationDialog()`
 
 Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/showing-multiple-options-with-confirmationdialog)

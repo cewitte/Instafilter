@@ -100,6 +100,11 @@ struct ContentView: View {
                 Button("Sepia Tone") { setFilter(CIFilter.sepiaTone())}
                 Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask())}
                 Button("Vignette") { setFilter(CIFilter.vignette())}
+                // Challenge 3: Explore the range of available Core Image filters, and add any three of your choosing to the app.
+                Button("Bokeh Blur") { setFilter(CIFilter.bokehBlur())}
+                Button("Bump Distortion") { setFilter(CIFilter.bumpDistortion())}
+                Button("Bloom") { setFilter(CIFilter.bloom())}
+                Button("Canny Edge Detector") { setFilter(CIFilter.cannyEdgeDetector())}
                 Button("Cancel", role: .cancel) { }
             }
         }
