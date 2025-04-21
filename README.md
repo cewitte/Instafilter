@@ -20,6 +20,32 @@ Here is the complete app:
 
 ![Complete App](/images/instafilter_complete_app.gif)
 
+### Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
+
+Branch: `challenge-1`
+
+Result:
+
+![Challenge 1's disabled controls](/images/challenge-1.gif)
+
+### Challenge 2: Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
+
+Branch: `challenge-2`
+
+_Note: there's some duplicated (aka unnecessary, DRY) code disabling controls when there is no image selected yet. It should be removed in a production version, but it's hopefully acceptable for this exercise._
+
+Result:
+
+![Challenge 2's multiple controls](/images/challenge-2.gif)
+
+### Challenge 3: Explore the range of available Core Image filters, and add any three of your choosing to the app.
+
+Branch: `challenge-3`
+
+Result:
+
+![Challenge 3's new filters added](/images/challenge-3.gif)
+
 ### Showing multiple options with `confirmationDialog()`
 
 Source URL: [link](https://www.hackingwithswift.com/books/ios-swiftui/showing-multiple-options-with-confirmationdialog)
