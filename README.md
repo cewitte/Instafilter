@@ -20,6 +20,10 @@ Here is the complete app:
 
 ![Complete App](/images/instafilter_complete_app.gif)
 
+Complete app with challenges resolved and implemented (same as challenge 3):
+
+![Complete App with challenges implemented](/images/challenge-3.gif)
+
 ### Challenge 1: Try making the Slider and Change Filter buttons disabled if there is no image selected.
 
 Branch: `challenge-1`
